@@ -111,7 +111,7 @@
 
           lastLog = new Date();
 
-          var sentData = angular.extend({}, extra, data);
+          var sentData = angular.extend({'event': 'gtm.angular.logging'}, extra, data);
 
           if (includeCurrentUrl) {
             sentData.url = $location.absUrl()
