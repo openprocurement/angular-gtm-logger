@@ -1,6 +1,6 @@
 {
   "name": "angular-gtm-logger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./angular-gtm-logger.js",
   "description": "An AngularJs service and $log decorator for GTM",
   "repository": {

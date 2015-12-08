@@ -92,7 +92,7 @@ describe('GTMLogger Module:', function() {
     });
 
     it('will send a message to GTM when properly configured', function () {
-      var message = { message: 'A test message' };
+      var message = {message: 'A test message' };
       var tag = 'GTMLogger';
       var generatedURL;
 
@@ -101,7 +101,7 @@ describe('GTMLogger Module:', function() {
 
       service.sendMessage(message);
 
-      expect(window.dataLayer.pop()).toEqual({message: 'A test message'});
+      expect(window.dataLayer.pop()).toEqual({event: 'gtm.angular.logging', message: 'A test message'});
     });
 
 
@@ -117,7 +117,7 @@ describe('GTMLogger Module:', function() {
       theGTMLoggerProvider.includeUrl( true );
 
       service.sendMessage( message );
-      expect(window.dataLayer.pop()).toEqual({message: 'A Test message', url: 'http://example.com'});
+      expect(window.dataLayer.pop()).toEqual({event: 'gtm.angular.logging', message: 'A Test message', url: 'http://example.com'});
 
     });
 
@@ -136,12 +136,12 @@ describe('GTMLogger Module:', function() {
       theGTMLoggerProvider.fields( extra );
       service.sendMessage( { message: message } );
 
-      expect(window.dataLayer.pop()).toEqual({ appVersion: '1.1.0', browser: 'Chrome', message: message });
+      expect(window.dataLayer.pop()).toEqual({event: 'gtm.angular.logging', appVersion: '1.1.0', browser: 'Chrome', message: message });
 
       extra.username = "nemo";
       service.fields( extra );
       service.sendMessage( { message: message } );
-      expect(window.dataLayer.pop()).toEqual({ appVersion: '1.1.0', browser: 'Chrome', message: message, username: "nemo" });
+      expect(window.dataLayer.pop()).toEqual({event: 'gtm.angular.logging', appVersion: '1.1.0', browser: 'Chrome', message: message, username: "nemo" });
 
     });
 
@@ -152,7 +152,7 @@ describe('GTMLogger Module:', function() {
       theGTMLoggerProvider.fields( extra );
       service.sendMessage( { message: message } );
 
-      expect(window.dataLayer.pop()).toEqual({ appVersion: '1.1.0', browser: 'Chrome', message: message });
+      expect(window.dataLayer.pop()).toEqual({event: 'gtm.angular.logging', appVersion: '1.1.0', browser: 'Chrome', message: message });
     });
 
 
